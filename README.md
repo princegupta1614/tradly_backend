@@ -1,6 +1,9 @@
 # 🚀 Tradly Backend API
 
-![Tradly Banner](https://res.cloudinary.com/degccylgj/image/upload/v1766595409/icon_jlbymu.png)
+<p align="center">
+  <img src="https://res.cloudinary.com/degccylgj/image/upload/v1766595409/icon_jlbymu.png" width="100" alt="Tradly Logo">
+</p>
+
 > **The intelligent backbone of the Tradly ERP ecosystem. Features AI-driven business analytics, automated invoice generation, and real-time inventory tracking.**
 
 [![Node.js](https://img.shields.io/badge/Node.js-43853D?style=for-the-badge&logo=node.js&logoColor=white)](https://nodejs.org/)
@@ -55,7 +58,7 @@ The standout feature is the **AI Integration**, which uses a custom **Round-Robi
 
 1. **Clone the Repository**
    ```bash
-   git clone [https://github.com/your-username/tradly-backend.git](https://github.com/your-username/tradly-backend.git)
+   git clone https://github.com/princegupta1614/tradly_backend.git
    cd tradly-backend
    ```
 
