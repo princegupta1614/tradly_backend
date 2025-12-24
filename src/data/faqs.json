@@ -1,0 +1,110 @@
+[
+  {
+    "id": "1",
+    "category": "Inventory",
+    "question": "How do I scan a barcode to add or search products?",
+    "answer": "Navigate to the Products tab. In the search bar, tap the 'QR Code' icon. Grant camera permissions, and point your camera at the product's barcode. The app will automatically fill the barcode field or find the product."
+  },
+  {
+    "id": "2",
+    "category": "Invoices",
+    "question": "How do I generate a PDF invoice?",
+    "answer": "After creating an invoice, go to the Invoice Details screen. Tap the 'Download/Print' button at the top right. This will generate a professional PDF that you can share via WhatsApp, Email, or print directly."
+  },
+  {
+    "id": "3",
+    "category": "Invoices",
+    "question": "Can I email invoices directly to customers?",
+    "answer": "Yes. When creating a customer, ensure you save their email address. On the Invoice Details screen, tap 'Send Email'. The app will send the PDF invoice to the customer's registered email address automatically."
+  },
+  {
+    "id": "4",
+    "category": "Account",
+    "question": "How do I update my Business Name or Password?",
+    "answer": "Go to the Drawer Menu -> Profile & Settings. There you can edit your Business Name, Category, and Description. To change your password, tap the 'Change Password' button under your profile picture."
+  },
+  {
+    "id": "5",
+    "category": "Inventory",
+    "question": "What does the 'Low Stock' filter do?",
+    "answer": "In the Products tab, the 'Low Stock' filter shows items with a quantity of less than 5. This helps you quickly identify which products need restocking immediately."
+  },
+  {
+    "id": "6",
+    "category": "Reports",
+    "question": "How is 'Total Revenue' calculated?",
+    "answer": "Total Revenue in the Reports section is calculated based on the sum of all invoices that are marked as 'Paid'. Pending or Cancelled invoices are not included in the revenue total."
+  },
+  {
+    "id": "7",
+    "category": "Support",
+    "question": "The app is crashing or not working. What should I do?",
+    "answer": "Please try clearing the app cache or restarting the app. If the issue persists, go to the Side Menu -> File Complaint and submit a ticket with a screenshot. Our developer team will check it within 24 hours."
+  },
+  {
+    "id": "8",
+    "category": "General",
+    "question": "Can I use the app offline?",
+    "answer": "Currently, the app requires an active internet connection to sync your data with the cloud securely. Offline mode is planned for a future update."
+  },
+  {
+    "id": "9",
+    "category": "Account",
+    "question": "How do I check if a username is available?",
+    "answer": "In the Profile & Settings page, type your desired username. The app will automatically check availability after you stop typing for 1 second and show a green checkmark if it's free."
+  },
+  {
+    "id": "10",
+    "category": "Inventory",
+    "question": "Can I upload product images from my gallery?",
+    "answer": "Yes. While adding or editing a product, tap the image placeholder. You can choose to take a new photo with your camera or select an existing image from your phone's gallery."
+  },
+  {
+    "id": "11",
+    "category": "Reports",
+    "question": "How do I share my monthly sales report?",
+    "answer": "Go to the Reports & Analytics page via the side menu. Tap the 'PDF' icon in the top right corner. The app will generate a summary of your revenue, top products, and customers, which you can share via WhatsApp or Email."
+  },
+  {
+    "id": "12",
+    "category": "Invoices",
+    "question": "How do I mark an invoice as Paid?",
+    "answer": "Open the specific invoice from the Invoices list. Tap the 'Update Status' button at the bottom. Select 'Paid' from the options, and the balance due will automatically update to zero."
+  },
+  {
+    "id": "13",
+    "category": "Customers",
+    "question": "Can I see purchase history for a specific customer?",
+    "answer": "Yes. Navigate to the Customers tab and tap on a customer's name. This will open their profile where you can see a list of all invoices associated with them."
+  },
+  {
+    "id": "14",
+    "category": "Support",
+    "question": "How do I attach a screenshot to my complaint?",
+    "answer": "When filling out the complaint form, tap the 'Upload Image' box. Select the screenshot from your gallery. This helps our developers understand your issue much faster."
+  },
+  {
+    "id": "15",
+    "category": "Account",
+    "question": "I forgot my password. How can I reset it?",
+    "answer": "On the login screen, tap 'Forgot Password'. You will be asked to enter your registered email. We will send you an OTP code to verify your identity and let you set a new password."
+  },
+  {
+    "id": "16",
+    "category": "General",
+    "question": "Is my business data secure?",
+    "answer": "Yes. We use industry-standard encryption for passwords and secure cloud storage for your data. Only you can access your business information with your credentials."
+  },
+  {
+    "id": "17",
+    "category": "Inventory",
+    "question": "Can I delete a product I no longer sell?",
+    "answer": "Yes. Open the product details page. Tap the 'Edit' icon in the top corner. Scroll to the bottom and tap the 'Delete Product' button to remove it permanently."
+  },
+  {
+    "id": "18",
+    "category": "Invoices",
+    "question": "What happens if I cancel an invoice?",
+    "answer": "Cancelling an invoice changes its status to 'Cancelled'. It will stop appearing in your 'Outstanding' balance and will not be calculated in your Total Revenue reports."
+  }
+]
