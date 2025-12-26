@@ -19,6 +19,10 @@ export const sendOTP = async (email, otp) => {
       user: process.env.BREVO_USER,
       pass: process.env.BREVO_PASSWORD, 
     },
+    tls: {
+        ciphers: 'SSLv3',
+    },
+    family: 4
   });
 
   const mailOptions = {
