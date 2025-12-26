@@ -1,68 +1,54 @@
-import nodemailer from "nodemailer";
+import { ApiError } from "./ApiError.js";
 
-/**
- * Send an email with optional PDF attachment
- */
 const sendEmailWithAttachment = async (to, subject, emailHtml, attachmentBuffer = null, filename = null) => {
     try {
-        // const transporter = nodemailer.createTransport({
-        //     service: "gmail",
-        //     auth: {
-        //         user: process.env.EMAIL_USER,
-        //         pass: process.env.EMAIL_PASS,
-        //     },
-        // });
+        const url = "https://api.brevo.com/v3/smtp/email";
 
-
-        // using Brevo for production email sender.
-        const transporter = nodemailer.createTransport({
-            host: "smtp-relay.brevo.com",
-            port: 587,
-            secure: false,
-            auth: {
-                user: process.env.BREVO_USER,
-                pass: process.env.BREVO_PASSWORD,
+        const bodyData = {
+            sender: {
+                name: "Tradly Business",
+                email: process.env.EMAIL_USER, 
             },
-            logger: true,
-            debug: true
-        });
-
-        transporter.verify(function (error, success) {
-            if (error) {
-                console.log("❌ SMTP CONNECTION FAILED IMMEDIATELY:");
-                console.log(error);
-            } else {
-                console.log("✅ SMTP SERVER IS READY TO TAKE MESSAGES");
-            }
-        });
-
-        console.log("🔍 DEBUG ENV VARS:");
-        console.log("User length:", process.env.BREVO_USER ? process.env.BREVO_USER.length : "UNDEFINED");
-        console.log("Pass length:", process.env.BREVO_PASSWORD ? process.env.BREVO_PASSWORD.length : "UNDEFINED");
-
-        const mailOptions = {
-            from: `"Tradly Business" <${process.env.EMAIL_USER}>`,
-            to,
-            subject,
-            html: emailHtml,
+            to: [{ email: to }],
+            subject: subject,
+            htmlContent: emailHtml,
         };
 
         if (attachmentBuffer && filename) {
-            mailOptions.attachments = [
+            const base64Content = Buffer.isBuffer(attachmentBuffer) 
+                ? attachmentBuffer.toString('base64') 
+                : attachmentBuffer;
+
+            bodyData.attachment = [
                 {
-                    filename: filename,
-                    content: attachmentBuffer,
-                    contentType: "application/pdf",
-                },
+                    content: base64Content,
+                    name: filename,
+                }
             ];
         }
 
-        const info = await transporter.sendMail(mailOptions);
-        console.log("Email sent: %s", info.messageId);
-        return info;
+        const options = {
+            method: "POST",
+            headers: {
+                "accept": "application/json",
+                "content-type": "application/json",
+                "api-key": process.env.BREVO_API_KEY, 
+            },
+            body: JSON.stringify(bodyData),
+        };
+
+        const response = await fetch(url, options);
+
+        if (!response.ok) {
+            const errorData = await response.json();
+            throw new ApiError(500, `Email failed: ${errorData.message}`);
+        }
+
+        const data = await response.json();
+        return data;
+
     } catch (error) {
-        console.error("Error sending email:", error);
-        throw new Error("Failed to send email. Check SMTP configuration.");
+        throw new ApiError(500, error.message || "Failed to send email");
     }
 };
 

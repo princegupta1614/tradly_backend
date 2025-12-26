@@ -1,3 +1,5 @@
+import { ApiError } from "./ApiError.js";
+
 export const sendOTP = async (email, otp) => {
   const url = "https://api.brevo.com/v3/smtp/email";
   
@@ -35,14 +37,13 @@ export const sendOTP = async (email, otp) => {
     
     if (!response.ok) {
       const errorData = await response.json();
-      console.error("❌ Brevo API Error:", JSON.stringify(errorData, null, 2));
-      throw new Error(`Email failed: ${errorData.message}`);
+      console.log("❌ Brevo API Error:", JSON.stringify(errorData, null, 2));
     }
 
     console.log("✅ Email sent successfully via Brevo API");
     
   } catch (error) {
-    console.error("❌ Network/Server Error sending email:", error.message);
-    throw error; 
+    console.log("❌ Network/Server Error sending email:", error.message);
+    throw new ApiError(500, error.message || "Failed to send email");
   }
 };
