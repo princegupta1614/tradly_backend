@@ -41,11 +41,6 @@ app.use((req, res, next) => {
     console.log(`🚀 Method: ${req.method} ${req.originalUrl}`);
     console.log(`📱 Device: ${userAgent}`);
     console.log(`🌍 IP: ${clientIp}`);
-    if (Object.keys(req.body).length > 0) {
-        const logBody = { ...req.body };
-        if(logBody.password) logBody.password = "*****";
-        console.log(`📦 Body:`, JSON.stringify(logBody, null, 2));
-    }
     console.log(`===========================================\n`);
 
     next();
