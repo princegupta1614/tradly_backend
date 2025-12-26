@@ -13,14 +13,14 @@ export const sendOTP = async (email, otp) => {
 
   const transporter = nodemailer.createTransport({
     host: "smtp-relay.brevo.com",
-    port: 587,
-    secure: false,
+    port: 465,
+    secure: true,
     auth: {
       user: process.env.BREVO_USER,
       pass: process.env.BREVO_PASSWORD, 
     },
     tls: {
-        ciphers: 'SSLv3',
+        rejectUnauthorized: false,
     },
     family: 4
   });
