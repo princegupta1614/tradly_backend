@@ -23,7 +23,22 @@ const sendEmailWithAttachment = async (to, subject, emailHtml, attachmentBuffer 
                 user: process.env.BREVO_USER,
                 pass: process.env.BREVO_PASSWORD,
             },
+            logger: true,
+            debug: true
         });
+
+        transporter.verify(function (error, success) {
+            if (error) {
+                console.log("❌ SMTP CONNECTION FAILED IMMEDIATELY:");
+                console.log(error);
+            } else {
+                console.log("✅ SMTP SERVER IS READY TO TAKE MESSAGES");
+            }
+        });
+
+        console.log("🔍 DEBUG ENV VARS:");
+        console.log("User length:", process.env.BREVO_USER ? process.env.BREVO_USER.length : "UNDEFINED");
+        console.log("Pass length:", process.env.BREVO_PASSWORD ? process.env.BREVO_PASSWORD.length : "UNDEFINED");
 
         const mailOptions = {
             from: `"Tradly Business" <${process.env.EMAIL_USER}>`,
