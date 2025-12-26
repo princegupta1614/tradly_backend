@@ -20,8 +20,8 @@ const sendEmailWithAttachment = async (to, subject, emailHtml, attachmentBuffer 
             port: 587,
             secure: false,
             auth: {
-                user: process.env.USER,
-                pass: process.env.PASSWORD,
+                user: process.env.BREVO_USER,
+                pass: process.env.BREVO_PASSWORD,
             },
         });
 
