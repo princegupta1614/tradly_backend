@@ -31,7 +31,27 @@ app.use(express.static("public"));
 app.use(cookieParser());
 app.use(morgan('dev')); // Logs requests to the console
 
-// HEALTH CHECK ROUTE (The missing piece) ---
+app.use((req, res, next) => {
+    const start = Date.now();
+    const userAgent = req.headers['user-agent'] || 'Unknown Device';
+    const clientIp = req.headers['x-forwarded-for'] || req.socket.remoteAddress; 
+    
+    console.log(`\n============== [NEW REQUEST] ==============`);
+    console.log(`🕒 Time: ${new Date().toISOString()}`);
+    console.log(`🚀 Method: ${req.method} ${req.originalUrl}`);
+    console.log(`📱 Device: ${userAgent}`);
+    console.log(`🌍 IP: ${clientIp}`);
+    if (Object.keys(req.body).length > 0) {
+        const logBody = { ...req.body };
+        if(logBody.password) logBody.password = "*****";
+        console.log(`📦 Body:`, JSON.stringify(logBody, null, 2));
+    }
+    console.log(`===========================================\n`);
+
+    next();
+});
+
+// HEALTH CHECK ROUTE ---
 app.get('/', (req, res) => {
     res.status(200).json({
         message: "Tradly Server is Running!",
