@@ -144,7 +144,10 @@ src/
 ## 🤝 Related Repository
 
 This backend powers the **Tradly Mobile App**:
-👉 [Link to Frontend Repository](https://github.com/princegupta1614/tradly-mobile)
+
+👉 [Frontend Repository](https://github.com/princegupta1614/tradly-mobile)
+
+👉 [Download tradly.apk](https://github.com/princegupta1614/tradly_backend/releases/download/v1.0.0/tradly.apk)
 
 ---
 
